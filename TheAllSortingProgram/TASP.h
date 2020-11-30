@@ -6,12 +6,14 @@
 class Tsol
 {
 private:
+
+	std::string N_Tsol;
 	void Welcome();
 	bool SelectFrom();
 	void swap(int* a, int* b);
 	void SelectionSort_No();
 	void SelectionSort_Str();
-	std::string N_Tsol;
+	
 public:
 	Tsol();
 	void GetWelcome();

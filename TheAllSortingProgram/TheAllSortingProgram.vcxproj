@@ -150,12 +150,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="TASP.h" />
+    <ClInclude Include="src\bubble.h" />
+    <ClInclude Include="src\TASP.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="src\bubble.cpp" />
+    <ClCompile Include="src\Source.cpp" />
     <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="TASP.cpp" />
+    <ClCompile Include="src\TASP.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

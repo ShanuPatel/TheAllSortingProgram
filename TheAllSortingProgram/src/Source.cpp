@@ -3,10 +3,5 @@
 
 int main()
 {
-	Tsol sol;
-	sol.Welcome();
-	
-	Bubblesort bubble;
-	bubble.Welcome();
-	
+	MainSortingCall();
 }

@@ -1,19 +1,25 @@
 #pragma once
 #include <iostream>
-#include<string>
+#include <string>
 #include <vector>
 
 
 //Temp Solution will Rearrange later Properly
+enum class Selction_Screen
+{
+	ESelectionsort,
+	EBubblesort
+};
+
+
 class Tsol
 {
 private:
 
 	std::string N_Tsol;
-	int n, i, j, min_indx;
+	std::vector<int> v{ 1, 5, 8, 9, 6, 7, 3, 4, 2 };
+
 	bool SelectFrom();
-	void SelectionSort_No();
-	void SelectionSort_Str();
 	
 public:
 
@@ -26,4 +32,5 @@ public:
 	void NormalSort();
 };
 
+void MainSortingCall();
 

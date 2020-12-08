@@ -27,12 +27,18 @@
     <ClCompile Include="src\bubble.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Selectionsort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\TASP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\bubble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Selectionsort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

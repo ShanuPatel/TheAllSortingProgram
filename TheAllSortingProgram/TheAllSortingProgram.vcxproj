@@ -151,10 +151,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\bubble.h" />
+    <ClInclude Include="src\Selectionsort.h" />
     <ClInclude Include="src\TASP.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bubble.cpp" />
+    <ClCompile Include="src\Selectionsort.cpp" />
     <ClCompile Include="src\Source.cpp" />
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\TASP.cpp" />

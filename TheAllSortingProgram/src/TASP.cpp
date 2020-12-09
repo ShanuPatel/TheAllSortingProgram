@@ -3,14 +3,10 @@
 #include "Selectionsort.h"
 #include "bubble.h"
 
-Tsol::Tsol()
-{
-	N_Tsol = "Welcome To The All Sorting Program\n";
-}
 Tsol::~Tsol()
 {
 }
-void Tsol::SetName(std::string n_Tsol)
+void Tsol::SetName(std::string& n_Tsol)
 {
 	N_Tsol = n_Tsol;
 }
@@ -29,6 +25,7 @@ void Tsol::Welcome()
 //Selection of the Integer or String option
 bool Tsol::SelectFrom()
 {
+	ESelction_Screen SelectScreen;
 	Selectionsort* S_sort = new Selectionsort();
 	Bubblesort* b_Sort = new Bubblesort();
 	int value = 0;
@@ -73,17 +70,14 @@ void Tsol::swap_no(int* a, int* b)
 //Vector input sort
 void Tsol::NormalSort()
 {
-	const char In= '.';
-	int input;
-	std::cout << "enter the elements \nPress '.' To insertion \n";
-	std::vector<int> V;
+	std::cout << "Enter the Elements\nPress '.' to Insert the Numbers to sort \n";
 	while ((std::cin >> input) && input != In) {
 		V.push_back(input);
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "Unsorted array: \n";
-	for (size_t i = 0; i < V.size(); i++)
+	for ( i = 0; i < V.size(); i++)
 		std::cout << V[i]<<" ";
 	std::cout << std::endl;
 	sort(V.begin(), V.end());

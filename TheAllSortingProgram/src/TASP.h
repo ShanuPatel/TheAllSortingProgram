@@ -5,10 +5,11 @@
 
 
 //Temp Solution will Rearrange later Properly
-enum class Selction_Screen
+enum class ESelction_Screen : unsigned char
 {
-	ESelectionsort,
-	EBubblesort
+	ENormal_sort,
+	ESelection_sort,
+	EBubble_sort
 };
 
 
@@ -18,9 +19,10 @@ private:
 
 	std::string N_Tsol;
 	std::vector<int> v{ 1, 5, 8, 9, 6, 7, 3, 4, 2 };
-
+	ESelction_Screen SelectScreen;
+	void NormalSort();
 	bool SelectFrom();
-	
+
 public:
 
 	Tsol();
@@ -28,8 +30,8 @@ public:
 	void SetName(std::string n_Tsol);
 	std::string GetName();
 	virtual void Welcome();
-	void swap(int* a, int* b);
-	void NormalSort();
+	void swap_no(int* a, int* b);
+
 };
 
 void MainSortingCall();

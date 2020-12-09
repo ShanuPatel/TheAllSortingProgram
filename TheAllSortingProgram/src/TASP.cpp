@@ -12,7 +12,7 @@ Tsol::~Tsol()
 }
 void Tsol::SetName(std::string n_Tsol)
 {
-	N_Tsol=n_Tsol;
+	N_Tsol = n_Tsol;
 }
 std::string Tsol::GetName()
 {
@@ -30,46 +30,46 @@ void Tsol::Welcome()
 bool Tsol::SelectFrom()
 {
 	Selectionsort* S_sort = new Selectionsort();
-	char answer=0;
-	std::cout << "Press S to Sort Names                  Press N To Sort Numbers"<< std::endl;
-	std::cout << " Press S                    or          Press N\n";
-	std::cout << "--------------------------------------------------------------" << std::endl;
-
-	std::cin >> answer;
-	switch (answer)
+	Bubblesort* b_Sort = new Bubblesort();
+	int value = 0;
+	std::cout << "Press 1 to Normal sort  \nPress 2 To Select Selection sort \nPress 3 To Select Bubble sort \n";
+	std::cin >> value;
+	switch (value)
 	{
-	case 'S':
-		if (answer == 'S')
-			S_sort->SelectionSort_Str();
-	case 's':
-		if (answer == 's')
-			S_sort->SelectionSort_Str();
-			return true;
-	case'N':
-		if (answer == 'N')
-			S_sort->SelectionSort_No();
+	case 1:
+		SelectScreen = ESelction_Screen::ENormal_sort;
+		NormalSort();
 		return true;
-	case 'n':
-		if (answer == 'n')
-			S_sort->SelectionSort_No();
+		break;
+	case 2:
+		SelectScreen = ESelction_Screen::ESelection_sort;
+		S_sort->Welcome();
+		delete S_sort;
 		return true;
-
+		break;
+	case 3:
+		SelectScreen = ESelction_Screen::EBubble_sort;
+		b_Sort->Welcome();
+		delete b_Sort;
+		return true;
+		break;
 	default:
-		std::cout << "Invalid Input\n";
+		std::cout << "Invalid Output";
 		return false;
 		break;
 	}
-	delete S_sort;
+	return false;
 }
 
 // Auto Swapping FUnction for the Integer Version
-void Tsol::swap(int* a, int* b)
+void Tsol::swap_no(int* a, int* b)
 {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
+//n = sizeof(b_sort) / sizeof(b_sort[0]);// for array size of Vector
 //Vector input Try
 void Tsol::NormalSort()
 {
@@ -84,8 +84,4 @@ void MainSortingCall()
 {
 	Tsol sol;
 	sol.Welcome();
-
-	Bubblesort bubble;
-	bubble.Welcome();
-	bubble.bubblesort_No();
 }

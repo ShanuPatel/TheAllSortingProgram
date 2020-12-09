@@ -2,8 +2,14 @@
 
 void Selectionsort::SelectionSort_No()
 {
-	std::string Name;
-	Name = "Welcome to the Selection sort\n";
+	Name = "Sorted Using Selection sort\n";
+	std::cout << "Enter the Elements\nPress '.' to Insert the Numbers to sort  \n";
+	while ((std::cin >> input) && input != In)
+	{
+		array.push_back(input);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 	std::cout << Name << std::endl;
 	std::cout << "Unsorted array :\n";
 	for (i = 0; i < array.size(); i++)
@@ -25,6 +31,13 @@ void Selectionsort::SelectionSort_No()
 
 void Selectionsort::SelectionSort_Str()
 {
+	std::cout << "Enter the Elements\nPress '.' to Insert the Numbers to sort\n";
+	while ((std::cin >> Name) && Name != FName)
+	{
+		s_array.push_back(Name);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 	std::cout << "Unsorted String Array :\n";
 	for (i = 0; i < s_array.size(); i++)
 		std::cout << s_array[i] << " ";
@@ -45,9 +58,13 @@ void Selectionsort::SelectionSort_Str()
 	std::cout << "\n" << std::endl;
 }
 
+Selectionsort::~Selectionsort()
+{
+}
+
 void Selectionsort::Welcome()
 {
-	SetName("Welcome to Selection Sort\n\n");
+	SetName(Name);
 	std::cout << GetName();
 	Select_Selection();
 }

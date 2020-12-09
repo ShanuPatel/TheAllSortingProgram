@@ -16,18 +16,20 @@ enum class ESelction_Screen : unsigned char
 class Tsol
 {
 private:
-
+	size_t i;
+	const char In;
+	int input;
+	std::vector<int> V;
 	std::string N_Tsol;
-	//std::vector<int> v{ 1, 5, 8, 9, 6, 7, 3, 4, 2 };
-	ESelction_Screen SelectScreen;
 	void NormalSort();
 	bool SelectFrom();
 
 public:
 
-	Tsol();
+	Tsol()
+		:i(0), In('.'), input(0), N_Tsol("Welcome To The All Sorting Program\n") {}
 	~Tsol();
-	void SetName(std::string n_Tsol);
+	void SetName(std::string& n_Tsol);
 	std::string GetName();
 	virtual void Welcome();
 	void swap_no(int* a, int* b);
@@ -35,4 +37,3 @@ public:
 };
 
 void MainSortingCall();
-

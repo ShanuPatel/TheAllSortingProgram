@@ -33,16 +33,9 @@ bool Bubblesort::select_bubble()
 	}
 }
 
-Bubblesort::Bubblesort()
-{
-	i = {};
-	j = {};
-	bIsSwapped = false;
-}
-
 void Bubblesort::Welcome()
 {
-	SetName("Welcome to bubble Sort\n\n");
+	SetName(Name);
 	std::cout << GetName();
 	select_bubble();
 }
@@ -53,6 +46,13 @@ Bubblesort::~Bubblesort()
 
 void Bubblesort::bubblesort_No()
 {
+	std::cout<< "Enter the Elements\nPress '.' to Insert the Numbers to sort\n";
+	while ((std::cin >> input) && input != In)
+	{
+		b_Nosort.push_back(input);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 	bIsSwapped = false;
 	std::cout << "Unsorted array :" << std::endl;
 	for (i = 0; i < b_Nosort.size(); i++)
@@ -79,6 +79,13 @@ void Bubblesort::bubblesort_No()
 
 void Bubblesort::bubblesort_str()
 {
+	std::cout<<"Enter the Elements\nPress '.' to Insert the Numbers to sort\n";
+	while ((std::cin >> Name) && Name != FName)
+	{
+		b_strsort.push_back(Name);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 	bIsSwapped = false;
 	std::cout << "Unsorted list of Names :" << std::endl;
 	for (i = 0; i < b_strsort.size(); i++)

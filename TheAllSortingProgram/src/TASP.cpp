@@ -70,13 +70,26 @@ void Tsol::swap_no(int* a, int* b)
 }
 
 //n = sizeof(b_sort) / sizeof(b_sort[0]);// for array size of Vector
-//Vector input Try
+//Vector input sort
 void Tsol::NormalSort()
 {
-	sort(v.begin(), v.end());
+	const char In= '.';
+	int input;
+	std::cout << "enter the elements \nPress '.' To insertion \n";
+	std::vector<int> V;
+	while ((std::cin >> input) && input != In) {
+		V.push_back(input);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+	std::cout << "Unsorted array: \n";
+	for (size_t i = 0; i < V.size(); i++)
+		std::cout << V[i]<<" ";
+	std::cout << std::endl;
+	sort(V.begin(), V.end());
 
 	std::cout << "Sorted \n";
-	for (auto x : v)
+	for (auto x : V)
 		std::cout << x << " ";
 }
 

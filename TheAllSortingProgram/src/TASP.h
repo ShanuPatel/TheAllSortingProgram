@@ -18,7 +18,7 @@ class Tsol
 private:
 
 	std::string N_Tsol;
-	std::vector<int> v{ 1, 5, 8, 9, 6, 7, 3, 4, 2 };
+	//std::vector<int> v{ 1, 5, 8, 9, 6, 7, 3, 4, 2 };
 	ESelction_Screen SelectScreen;
 	void NormalSort();
 	bool SelectFrom();

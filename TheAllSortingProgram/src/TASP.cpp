@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "Selectionsort.h"
 #include "bubble.h"
+#include "InsertionSort.h"
 
 Tsol::~Tsol()
 {
@@ -28,8 +29,10 @@ bool Tsol::SelectFrom()
 	ESelction_Screen SelectScreen;
 	Selectionsort* S_sort = new Selectionsort();
 	Bubblesort* b_Sort = new Bubblesort();
+	Insertionsort* I_sort = new Insertionsort();
+
 	int value = 0;
-	std::cout << "Press 1 to Normal sort  \nPress 2 To Select Selection sort \nPress 3 To Select Bubble sort \n";
+	std::cout << "Press 1 to Normal sort  \nPress 2 To Select Selection sort \nPress 3 To Select Bubble sort \nPress 4 To Select Insertionsort sort \n";
 	std::cin >> value;
 	switch (value)
 	{
@@ -50,6 +53,10 @@ bool Tsol::SelectFrom()
 		delete b_Sort;
 		return true;
 		break;
+	case 4:
+		SelectScreen = ESelction_Screen::EInsertion_sort;
+		I_sort->Welcome();
+		delete I_sort;
 	default:
 		std::cout << "Invalid Output";
 		return false;

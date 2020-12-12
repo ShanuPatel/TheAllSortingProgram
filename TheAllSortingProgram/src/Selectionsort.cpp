@@ -38,7 +38,7 @@ void Selectionsort::SelectionSort_Str()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	std::cout << "Unsorted String Array :\n";
+	std::cout <<"Unsorted String Array :\n";
 	for (i = 0; i < s_array.size(); i++)
 		std::cout << s_array[i] << " ";
 	for (i = 0; i < s_array.size() - 1; i++) {
@@ -52,7 +52,7 @@ void Selectionsort::SelectionSort_Str()
 		s_array[i] = temp;
 	}
 	std::cout << std::endl << "\n";
-	std::cout << "sorted String Array:\n";
+	std::cout <<"sorted String Array:\n";
 	for (i = 0; i < s_array.size(); i++)
 		std::cout << s_array[i] << " ";
 	std::cout << "\n" << std::endl;

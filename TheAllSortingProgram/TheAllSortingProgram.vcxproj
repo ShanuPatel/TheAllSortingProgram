@@ -152,12 +152,14 @@
   <ItemGroup>
     <ClInclude Include="src\bubble.h" />
     <ClInclude Include="src\InsertionSort.h" />
+    <ClInclude Include="src\Mergesort.h" />
     <ClInclude Include="src\Selectionsort.h" />
     <ClInclude Include="src\TASP.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bubble.cpp" />
     <ClCompile Include="src\InsertionSort.cpp" />
+    <ClCompile Include="src\Mergesort.cpp" />
     <ClCompile Include="src\Selectionsort.cpp" />
     <ClCompile Include="src\Source.cpp" />
     <ClCompile Include="src\App.cpp" />

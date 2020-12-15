@@ -3,6 +3,7 @@
 #include "Selectionsort.h"
 #include "bubble.h"
 #include "InsertionSort.h"
+#include "Mergesort.h"
 
 Tsol::~Tsol()
 {
@@ -97,5 +98,8 @@ void Tsol::NormalSort()
 void MainSortingCall()
 {
 	Tsol sol;
-	sol.Welcome();
+	//sol.Welcome();
+	MergeSort* M_sort = new MergeSort();
+	M_sort->Welcome();
+	delete M_sort;
 }

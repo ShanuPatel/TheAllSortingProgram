@@ -10,7 +10,8 @@ enum class ESelction_Screen : unsigned char
 	ENormal_sort,
 	ESelection_sort,
 	EBubble_sort,
-	EInsertion_sort
+	EInsertion_sort,
+	EMerge_sort
 };
 
 

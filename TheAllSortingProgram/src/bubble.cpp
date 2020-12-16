@@ -70,7 +70,7 @@ void Bubblesort::bubblesort_No()
 			break;
 	}
 
-	std::cout << "\n";
+	std::cout << '\n';
 	std::cout << "sorted Arrray:" << std::endl;
 	for (i = 0; i < b_Nosort.size(); i++)
 		std::cout << b_Nosort[i] << " ";

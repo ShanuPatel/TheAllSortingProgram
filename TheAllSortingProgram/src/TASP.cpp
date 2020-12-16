@@ -31,9 +31,10 @@ bool Tsol::SelectFrom()
 	Selectionsort* S_sort = new Selectionsort();
 	Bubblesort* b_Sort = new Bubblesort();
 	Insertionsort* I_sort = new Insertionsort();
+	MergeSort* M_sort = new MergeSort();
 
 	int value = 0;
-	std::cout << "Press 1 to Normal sort  \nPress 2 To Select Selection sort \nPress 3 To Select Bubble sort \nPress 4 To Select Insertionsort sort \n";
+	std::cout << "Press 1 to Normal sort  \nPress 2 To Select Selection sort \nPress 3 To Select Bubble sort \nPress 4 To Select Insertionsort sort \nPress 5 To Select Mergesort sort \n";
 	std::cin >> value;
 	switch (value)
 	{
@@ -58,6 +59,11 @@ bool Tsol::SelectFrom()
 		SelectScreen = ESelction_Screen::EInsertion_sort;
 		I_sort->Welcome();
 		delete I_sort;
+	case 5:
+		SelectScreen = ESelction_Screen::EMerge_sort;
+		M_sort->Welcome();
+		delete M_sort;
+
 	default:
 		std::cout << "Invalid Output";
 		return false;
@@ -98,8 +104,5 @@ void Tsol::NormalSort()
 void MainSortingCall()
 {
 	Tsol sol;
-	//sol.Welcome();
-	MergeSort* M_sort = new MergeSort();
-	M_sort->Welcome();
-	delete M_sort;
+	sol.Welcome();
 }

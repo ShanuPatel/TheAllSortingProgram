@@ -4,6 +4,7 @@
 #include "bubble.h"
 #include "InsertionSort.h"
 #include "Mergesort.h"
+#include "Quicksort.h"
 
 Tsol::~Tsol()
 {
@@ -104,5 +105,7 @@ void Tsol::NormalSort()
 void MainSortingCall()
 {
 	Tsol sol;
-	sol.Welcome();
+	//sol.Welcome();
+	Quicksort Q_sort;
+	Q_sort.Quicksort_No();
 }

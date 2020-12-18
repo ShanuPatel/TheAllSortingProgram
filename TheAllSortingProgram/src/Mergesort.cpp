@@ -8,8 +8,7 @@ MergeSort::~MergeSort()
 void MergeSort::Welcome()
 {
 	SetName(Name);
-	std::cout<<GetName();
-	std::cout << std::endl;
+	std::cout<<GetName() << '\n';
 	select_Merge();
 }
 

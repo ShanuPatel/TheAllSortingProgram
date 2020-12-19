@@ -50,6 +50,60 @@ void Heapsort::Heapsort_No()
 	std::cout << '\n' << std::endl;
 }
 
+void Heapsort::Heapify_str(std::vector<std::string>& arr_no, int n, int i)
+{
+	int Largest = i;
+	int L = 2 * i + 1;
+	int R = 2 * i + 2;
+	if (L<n && arr_no[L]>arr_no[Largest])
+		Largest = L;
+
+	if (R<n && arr_no[R]>arr_no[Largest])
+		Largest = R;
+
+	if (Largest != i)
+	{
+		std::string temp = arr_no[i];
+		arr_no[i] = arr_no[Largest];
+		arr_no[Largest] = temp;
+		Heapify_str(arr_no, n, Largest);
+	}
+}
+
+void Heapsort::Heapsort_str_Impl(std::vector<std::string>& arr_no, int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--) {
+		Heapify_str(arr_no, n, i);
+	}
+
+	for (int i = n - 1; i > 0; i--)
+	{
+		std::string temp = arr_no[0];
+		arr_no[0] = arr_no[i];
+		arr_no[i] = temp;
+		Heapify_str(arr_no, i, 0);
+	}
+}
+
+void Heapsort::Heapsort_str()
+{
+	std::vector<std::string> stack_result;
+	std::cout << "Enter the Elements\nPress '.' to Insert the Numbers to sort\n";
+	while ((std::cin >> Name) && Name != FName)
+	{
+		stack_result.push_back(Name);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+
+	Heapsort_str_Impl(stack_result, stack_result.size());
+	std::cout << '\n';
+	std::cout << "sorted Arrray:" << '\n';
+	for (size_t i = 0; i < stack_result.size(); i++)
+		std::cout << stack_result[i] << " ";
+	std::cout << '\n' << std::endl;
+}
+
 bool Heapsort::Select_Heap()
 {
 	char answer = 0;
@@ -62,10 +116,10 @@ bool Heapsort::Select_Heap()
 	{
 	case 'S':
 		if (answer == 'S')
-			//Quicksort_str();
+			Heapsort_str();
 	case 's':
 		if (answer == 's')
-			//Quicksort_str();
+			Heapsort_str();
 		return true;
 	case'N':
 		if (answer == 'N')

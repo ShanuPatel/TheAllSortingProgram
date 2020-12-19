@@ -5,6 +5,7 @@
 #include "InsertionSort.h"
 #include "Mergesort.h"
 #include "Quicksort.h"
+#include "Heapsort.h"
 
 Tsol::~Tsol()
 {
@@ -34,8 +35,10 @@ bool Tsol::SelectFrom()
 	Insertionsort* I_sort = new Insertionsort();
 	MergeSort* M_sort = new MergeSort();
 	Quicksort* Q_sort = new Quicksort();
+	Heapsort* H_sort = new Heapsort();
+
 	int value = 0;
-	std::cout << "Press 1 to Normal sort  \nPress 2 To Select Selection sort \nPress 3 To Select Bubble sort \nPress 4 To Select Insertionsort sort \nPress 5 To Select Mergesort sort \nPress 6 To Select Mergesort sort\n";
+	std::cout << "Press 1 to Normal sort  \nPress 2 To Select Selection sort \nPress 3 To Select Bubble sort \nPress 4 To Select Insertionsort sort \nPress 5 To Select Mergesort sort \nPress 6 To Select Mergesort sort\nPress 7 To Select Heapsort sort\n";
 	std::cin >> value;
 	switch (value)
 	{
@@ -71,6 +74,12 @@ bool Tsol::SelectFrom()
 		Q_sort->Welcome();
 		delete Q_sort;
 		return true;
+	case 7:
+		SelectScreen = ESelction_Screen::EHeap_sort;
+		H_sort->Welcome();
+		delete H_sort;
+		return true;
+
 	default:
 		std::cout <<"Invalid Output";
 		return false;

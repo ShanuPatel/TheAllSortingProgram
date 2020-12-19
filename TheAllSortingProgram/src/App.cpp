@@ -1,39 +1,39 @@
-//OpenGL For Later Use
+//opengl for later use
 
-//#include <GLFW/glfw3.h>
+//#include <glfw/glfw3.h>
 //
 //int main(void)
 //{
-//    GLFWwindow* window;
+//    glfwwindow* window;
 //
-//    /* Initialize the library */
-//    if (!glfwInit())
+//    /* initialize the library */
+//    if (!glfwinit())
 //        return -1;
 //
-//    /* Create a windowed mode window and its OpenGL context */
-//    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+//    /* create a windowed mode window and its opengl context */
+//    window = glfwcreatewindow(640, 480, "hello world", null, null);
 //    if (!window)
 //    {
-//        glfwTerminate();
+//        glfwterminate();
 //        return -1;
 //    }
 //
-//    /* Make the window's context current */
-//    glfwMakeContextCurrent(window);
+//    /* make the window's context current */
+//    glfwmakecontextcurrent(window);
 //
-//    /* Loop until the user closes the window */
-//    while (!glfwWindowShouldClose(window))
+//    /* loop until the user closes the window */
+//    while (!glfwwindowshouldclose(window))
 //    {
-//        /* Render here */
-//        glClear(GL_COLOR_BUFFER_BIT);
+//        /* render here */
+//        glclear(gl_color_buffer_bit);
 //
-//        /* Swap front and back buffers */
-//        glfwSwapBuffers(window);
+//        /* swap front and back buffers */
+//        glfwswapbuffers(window);
 //
-//        /* Poll for and process events */
-//        glfwPollEvents();
+//        /* poll for and process events */
+//        glfwpollevents();
 //    }
 //
-//    glfwTerminate();
+//    glfwterminate();
 //    return 0;
 //}

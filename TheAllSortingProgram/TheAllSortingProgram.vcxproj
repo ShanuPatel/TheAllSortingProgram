@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\bubble.h" />
+    <ClInclude Include="src\Heapsort.h" />
     <ClInclude Include="src\InsertionSort.h" />
     <ClInclude Include="src\Mergesort.h" />
     <ClInclude Include="src\Quicksort.h" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bubble.cpp" />
+    <ClCompile Include="src\Heapsort.cpp" />
     <ClCompile Include="src\InsertionSort.cpp" />
     <ClCompile Include="src\Mergesort.cpp" />
     <ClCompile Include="src\Quicksort.cpp" />

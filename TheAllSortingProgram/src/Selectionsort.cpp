@@ -1,5 +1,22 @@
 #include "Selectionsort.h"
 
+template<typename T>
+void Selectionsort::SelectionSort_Impl(std::vector<T>& Element)
+{
+	std::cout << "Unsorted array :\n";
+	for (i = 0; i < Element.size(); i++)
+		std::cout << Element[i] << " ";
+	std::cout << '\n';
+	for (i = 0; i < Element.size() - 1; i++)
+	{
+		min_indx = i;
+		for (j = i + 1; j < Element.size(); j++)
+			if (Element[j] < Element[min_indx])
+				min_indx = j;
+		swap_Impl(Element[min_indx], Element[i]);
+	}
+}
+
 void Selectionsort::SelectionSort_No()
 {
 	Name = "Sorted Using Selection sort\n";
@@ -10,19 +27,8 @@ void Selectionsort::SelectionSort_No()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	std::cout << Name << std::endl;
-	std::cout << "Unsorted array :\n";
-	for (i = 0; i < array.size(); i++)
-		std::cout << array[i] << " ";
-	std::cout << std::endl;
-	for (i = 0; i < array.size() - 1; i++)
-	{
-		min_indx = i;
-		for (j = i + 1; j < array.size(); j++)
-			if (array[j] < array[min_indx])
-				min_indx = j;
-		swap_no(&array[min_indx], &array[i]);
-	}
+	std::cout << "\033[2J\033[1;1H";
+	SelectionSort_Impl(array);
 	std::cout << "sorted Arrray:\n";
 	for (i = 0; i < array.size(); i++)
 		std::cout << array[i] << " ";
@@ -38,20 +44,9 @@ void Selectionsort::SelectionSort_Str()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	std::cout <<"Unsorted String Array :\n";
-	for (i = 0; i < s_array.size(); i++)
-		std::cout << s_array[i] << " ";
-	for (i = 0; i < s_array.size() - 1; i++) {
-		min_indx = i;
-		for (j = i + 1; j < s_array.size(); j++)
-			if (s_array[j] < s_array[min_indx])
-				min_indx = j;
-		/**mannual swapping*/
-		std::string temp = s_array[min_indx];
-		s_array[min_indx] = s_array[i];
-		s_array[i] = temp;
-	}
-	std::cout << std::endl << "\n";
+	std::cout << "\033[2J\033[1;1H";
+	SelectionSort_Impl(s_array);
+	std::cout << '\n';
 	std::cout <<"sorted String Array:\n";
 	for (i = 0; i < s_array.size(); i++)
 		std::cout << s_array[i] << " ";

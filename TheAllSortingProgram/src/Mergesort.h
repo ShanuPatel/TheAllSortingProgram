@@ -8,18 +8,18 @@ private:
 	int input_one;
 	std::string Name;
 	std::string FName;
-	// string Input
-	void Mergesort_str();
-	std::vector<std::string> str_Mergesort_Imp(std::vector<std::string>& stack_result);
-	std::vector<std::string> str_Merge_fun(std::vector<std::string>& L, std::vector<std::string>& R);
-	// Number input
-	void MergeSort_No();
-	std::vector<int> MergeSort_Imp(std::vector<int>& stack_result);
-	std::vector<int> merge_fun(std::vector<int>& L, std::vector<int>& R);
 
+	template<typename T>
+	std::vector<T> MergeSort_Impl(std::vector<T>& stack_result);
+	template<typename T>
+	std::vector<T> merge_fun(std::vector<T>& L, std::vector<T>& R);
 	bool select_Merge();
-public:
-	MergeSort() :In('.'), input_one(0), Name("Welcome to the Mergesort"),FName(".") {}
+
+	void MergeSort_No();
+	void Mergesort_str();
+
+	public:
+	MergeSort() :In('.'), input_one(0), Name("\n                    Welcome to the Mergesort\n"),FName(".") {}
 	~MergeSort();
 	void Welcome();
 

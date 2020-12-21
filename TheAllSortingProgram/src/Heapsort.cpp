@@ -1,6 +1,7 @@
 #include "Heapsort.h"
 
-void Heapsort::Heapify(std::vector<int>& arr_no, int n, int i)
+template<typename T>
+void Heapsort::Heapify(std::vector<T>& arr_no, int n, int i)
 {
 	int Largest = i;
 	int L = 2 * i + 1;
@@ -13,12 +14,13 @@ void Heapsort::Heapify(std::vector<int>& arr_no, int n, int i)
 
 	if (Largest != i)
 	{
-		swap_no(&arr_no[i], &arr_no[Largest]);
+		swap_Impl(arr_no[i], arr_no[Largest]);
 		Heapify(arr_no, n, Largest);
 	}
 }
 
-void Heapsort::Heapsort_Impl(std::vector<int>& arr_no, int n)
+template<typename T>
+void Heapsort::Heapsort_Impl(std::vector<T>& arr_no, int n)
 {
 	for (int i = n / 2 - 1; i >= 0; i--) {
 		Heapify(arr_no, n, i);
@@ -26,7 +28,7 @@ void Heapsort::Heapsort_Impl(std::vector<int>& arr_no, int n)
 
 	for (int i = n - 1; i > 0; i--)
 	{
-		swap_no(&arr_no[0], &arr_no[i]);
+		swap_Impl(arr_no[0], arr_no[i]);
 		Heapify(arr_no, i, 0);
 	}
 }
@@ -41,48 +43,13 @@ void Heapsort::Heapsort_No()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-
+	std::cout << "\033[2J\033[1;1H";
 	Heapsort_Impl(stack_result, stack_result.size());
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';
 	for (size_t i = 0; i < stack_result.size(); i++)
 		std::cout << stack_result[i] << " ";
 	std::cout << '\n' << std::endl;
-}
-
-void Heapsort::Heapify_str(std::vector<std::string>& arr_no, int n, int i)
-{
-	int Largest = i;
-	int L = 2 * i + 1;
-	int R = 2 * i + 2;
-	if (L<n && arr_no[L]>arr_no[Largest])
-		Largest = L;
-
-	if (R<n && arr_no[R]>arr_no[Largest])
-		Largest = R;
-
-	if (Largest != i)
-	{
-		std::string temp = arr_no[i];
-		arr_no[i] = arr_no[Largest];
-		arr_no[Largest] = temp;
-		Heapify_str(arr_no, n, Largest);
-	}
-}
-
-void Heapsort::Heapsort_str_Impl(std::vector<std::string>& arr_no, int n)
-{
-	for (int i = n / 2 - 1; i >= 0; i--) {
-		Heapify_str(arr_no, n, i);
-	}
-
-	for (int i = n - 1; i > 0; i--)
-	{
-		std::string temp = arr_no[0];
-		arr_no[0] = arr_no[i];
-		arr_no[i] = temp;
-		Heapify_str(arr_no, i, 0);
-	}
 }
 
 void Heapsort::Heapsort_str()
@@ -95,8 +62,8 @@ void Heapsort::Heapsort_str()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-
-	Heapsort_str_Impl(stack_result, stack_result.size());
+	std::cout << "\033[2J\033[1;1H";
+	Heapsort_Impl(stack_result, stack_result.size());
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';
 	for (size_t i = 0; i < stack_result.size(); i++)
@@ -107,9 +74,9 @@ void Heapsort::Heapsort_str()
 bool Heapsort::Select_Heap()
 {
 	char answer = 0;
-	std::cout << "Press S to Sort Names                  Press N To Sort Numbers" << std::endl;
+	std::cout << "Press S to Sort Names                  Press N To Sort Numbers" << '\n';
 	std::cout << " Press S                    or          Press N\n";
-	std::cout << "--------------------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------------------" << '\n';
 
 	std::cin >> answer;
 	switch (answer)

@@ -26,7 +26,7 @@ void Insertionsort::Insertionsort_No()
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "\033[2J\033[1;1H";
-	std::cout << "Unsorted String Array :\n";
+	std::cout << "Unsorted Array :\n";
 	for (i = 0; i < In_Nosort.size(); i++)
 	{
 		std::cout << In_Nosort[i] << " ";

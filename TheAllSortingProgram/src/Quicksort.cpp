@@ -40,6 +40,12 @@ void Quicksort::Quicksort_No()
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
+
 	Quicksort_Impl(stack_result, 0, stack_result.size() - 1);
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';
@@ -59,6 +65,12 @@ void Quicksort::Quicksort_str()
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
+
 	Quicksort_Impl(stack_result, 0, stack_result.size() - 1);
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';

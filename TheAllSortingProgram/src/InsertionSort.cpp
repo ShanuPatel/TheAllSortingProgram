@@ -3,12 +3,6 @@
 template<typename T>
 void Insertionsort::InsertionSort_Impl(std::vector<T>& Element)
 {
-	std::cout << "Unsorted String Array :\n";
-	for (i = 0; i < Element.size(); i++)
-	{
-		std::cout << Element[i] << " ";
-	}
-
 	for (i = 1; i < Element.size(); i++)
 	{
 	T temp = Element[i];
@@ -31,9 +25,16 @@ void Insertionsort::Insertionsort_No()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-
 	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (i = 0; i < In_Nosort.size(); i++)
+	{
+		std::cout << In_Nosort[i] << " ";
+	}
+
+
 	InsertionSort_Impl(In_Nosort);
+
 
 	std::cout << '\n';
 	std::cout << "sorted String Array:\n";
@@ -52,6 +53,13 @@ void Insertionsort::Insertionssort_str()
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "\033[2J\033[1;1H";
+
+	std::cout << "Unsorted String Array :\n";
+	for (i = 0; i < In_Nosort.size(); i++)
+	{
+		std::cout << In_Nosort[i] << " ";
+	}
+
 	InsertionSort_Impl(In_Strsort);
 
 	std::cout << '\n';

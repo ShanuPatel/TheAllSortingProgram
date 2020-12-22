@@ -113,6 +113,12 @@ void MergeSort::MergeSort_No()
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
+
 	stack_result =MergeSort_Impl(stack_result);
 
 	std::cout << '\n';
@@ -134,6 +140,12 @@ void MergeSort::Mergesort_str()
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
+
 	stack_result = MergeSort_Impl(stack_result);
 
 	std::cout << '\n';

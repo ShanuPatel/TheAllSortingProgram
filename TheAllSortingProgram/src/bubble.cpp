@@ -54,6 +54,12 @@ void Bubblesort::bubblesort_No()
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < b_Nosort.size(); i++)
+	{
+		std::cout << b_Nosort[i] << " ";
+	}
+
 	Bubblesort_Impl(b_Nosort);
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';
@@ -101,6 +107,12 @@ void Bubblesort::bubblesort_str()
 	}
 
 	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < b_Nosort.size(); i++)
+	{
+		std::cout << b_Nosort[i] << " ";
+	}
+
 	Bubblesort_Impl(b_strsort);
 
 	std::cout << "\n";

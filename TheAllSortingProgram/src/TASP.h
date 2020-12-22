@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <algorithm>
 
 //Temp Solution will Rearrange later Properly
 enum class ESelction_Screen : unsigned char
@@ -30,14 +30,24 @@ private:
 
 public:
 
-	Tsol()
-		:i(0), In('.'), input(0), N_Tsol("Welcome To The All Sorting Program\n") {}
+	Tsol():i(0), In('.'), input(0), N_Tsol("                                      Welcome To The All Sorting Program\n") {}
 	~Tsol();
 	void SetName(std::string& n_Tsol);
 	std::string GetName();
+
 	virtual void Welcome();
-	void swap_no(int* a, int* b);
+
+	template<typename T>
+	void swap_Impl(T& a, T& b);
 
 };
 
-void MainSortingCall();
+namespace UTsol{void MainSortingCall();}
+
+template<typename T>
+inline void Tsol::swap_Impl(T& a, T& b)
+{
+	T temp = a;
+	a = b;
+	b = temp;
+}

@@ -8,18 +8,18 @@ class Heapsort :public Tsol
 	std::string Name;
 	std::string FName;
 
-	void Heapify(std::vector<int>& arr_no, int n, int i);
-	void Heapsort_Impl(std::vector<int>& arr_no, int n);
-	void Heapsort_No();
-
-	void Heapify_str(std::vector<std::string>& arr_no, int n, int i);
-	void Heapsort_str_Impl(std::vector<std::string>& arr_no, int n);
-	void Heapsort_str();
-
+	template<typename T>
+	void Heapify(std::vector<T>& arr_no, int n, int i);
+	template<typename T>
+	void Heapsort_Impl(std::vector<T>& arr_no, int n);
 	bool Select_Heap();
 
+	void Heapsort_No();
+	void Heapsort_str();
+
 public:
-	Heapsort():In('.'),input(0),Name("\nWelcome to the Heapsort"),FName("."){}
+	Heapsort():In('.'),input(0),Name("\n                    Welcome to the Heapsort\n"),FName("."){}
 	~Heapsort();
+
 	void Welcome()override;
 };

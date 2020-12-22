@@ -3,9 +3,9 @@
 bool Bubblesort::select_bubble()
 {
 	char answer = 0;
-	std::cout << "Press S to Sort Names                  Press N To Sort Numbers" << std::endl;
+	std::cout << "Press S to Sort Names                  Press N To Sort Numbers" << '\n';
 	std::cout << " Press S                    or          Press N\n";
-	std::cout << "--------------------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------------------" << '\n';
 
 	std::cin >> answer;
 	switch (answer)
@@ -53,28 +53,47 @@ void Bubblesort::bubblesort_No()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	bIsSwapped = false;
-	std::cout << "Unsorted array :" << std::endl;
+	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < b_Nosort.size(); i++)
+	{
+		std::cout << b_Nosort[i] << " ";
+	}
+
+	Bubblesort_Impl(b_Nosort);
+	std::cout << '\n';
+	std::cout << "sorted Arrray:" << '\n';
 	for (i = 0; i < b_Nosort.size(); i++)
 		std::cout << b_Nosort[i] << " ";
+	std::cout << "\n" << std::endl;
+}
 
-	for (i = 0; i < b_Nosort.size() - 1; i++)
+template<typename T>
+void Bubblesort::Bubblesort_Impl(std::vector<T>& Element)
+{
+	bIsSwapped = false;
+	std::cout << "Unsorted list of Names :" << '\n';
+	for (i = 0; i < Element.size(); i++)
+		std::cout << Element[i] << " ";
+
+	for (i = 0; i < Element.size() - 1; i++)
 	{
-		for (j = 0; j < b_Nosort.size() - i - 1; j++)
+		for (j = 0; j < Element.size() - i - 1; j++)
 		{
-			if (b_Nosort[j] > b_Nosort[j + 1])
-				swap_no(&b_Nosort[j], &b_Nosort[j + 1]);
+			if (Element[j] > Element[j + 1])
+			{ 	//performing Manually string swap automate this string swap later
+				/*T temp = Element[j];
+				Element[j] = Element[j + 1];
+				Element[j + 1] = temp;*/
+
+				//swap_no(&Element[j], &Element[j + 1]);
+				swap_Impl(Element[j], Element[j + 1]);
+			}
 			bIsSwapped = true;
 		}
 		if (bIsSwapped == false)
 			break;
 	}
-
-	std::cout << '\n';
-	std::cout << "sorted Arrray:" << std::endl;
-	for (i = 0; i < b_Nosort.size(); i++)
-		std::cout << b_Nosort[i] << " ";
-	std::cout << "\n" << std::endl;
 }
 
 void Bubblesort::bubblesort_str()
@@ -86,28 +105,18 @@ void Bubblesort::bubblesort_str()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	bIsSwapped = false;
-	std::cout << "Unsorted list of Names :" << std::endl;
-	for (i = 0; i < b_strsort.size(); i++)
-		std::cout << b_strsort[i] << " ";
 
-	for (i = 0; i < b_strsort.size() - 1; i++)
+	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < b_Nosort.size(); i++)
 	{
-		for (j = 0; j < b_strsort.size() - i - 1; j++)
-		{
-			if (b_strsort[j] > b_strsort[j + 1])
-			{ 	//performing Manually string swap automate this string swap later
-				std::string temp = b_strsort[j];
-				b_strsort[j] = b_strsort[j + 1];
-				b_strsort[j + 1] = temp;
-			}
-			bIsSwapped = true;
-		}
-		if (bIsSwapped == false)
-			break;
+		std::cout << b_Nosort[i] << " ";
 	}
+
+	Bubblesort_Impl(b_strsort);
+
 	std::cout << "\n";
-	std::cout << "sorted Arrray:" << std::endl;
+	std::cout << "sorted Arrray:" << '\n';
 	for (i = 0; i < b_strsort.size(); i++)
 		std::cout << b_strsort[i] << " ";
 	std::cout << "\n" << std::endl;

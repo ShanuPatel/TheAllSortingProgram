@@ -1,5 +1,21 @@
 #include "InsertionSort.h"
 
+template<typename T>
+void Insertionsort::InsertionSort_Impl(std::vector<T>& Element)
+{
+	for (i = 1; i < Element.size(); i++)
+	{
+	T temp = Element[i];
+		j = i - 1;
+		while (j >= 0 && Element[j] > temp)
+		{
+			Element[j + 1] = Element[j];
+			j = j - 1;
+		}
+		Element[j + 1] = temp;
+	}
+}
+
 void Insertionsort::Insertionsort_No()
 {
 	std::cout << "Enter the Elements\nPress '.' to Insert the Numbers to sort\n";
@@ -9,25 +25,18 @@ void Insertionsort::Insertionsort_No()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-
+	std::cout << "\033[2J\033[1;1H";
 	std::cout << "Unsorted String Array :\n";
 	for (i = 0; i < In_Nosort.size(); i++)
 	{
-		std::cout << In_Nosort[i] <<" ";
+		std::cout << In_Nosort[i] << " ";
 	}
 
-	for (i = 1; i < In_Nosort.size(); i++)
-	{
-		temp = In_Nosort[i];
-		j = i - 1;
-		while (j >= 0 && In_Nosort[j] > temp)
-		{
-			In_Nosort[j + 1] = In_Nosort[j];
-			j = j - 1;
-		}
-		In_Nosort[j + 1] = temp;
-	}
-	std::cout << std::endl;
+
+	InsertionSort_Impl(In_Nosort);
+
+
+	std::cout << '\n';
 	std::cout << "sorted String Array:\n";
 	for (i = 0; i < In_Nosort.size(); i++)
 		std::cout << In_Nosort[i] << " ";
@@ -43,24 +52,17 @@ void Insertionsort::Insertionssort_str()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
+	std::cout << "\033[2J\033[1;1H";
 
 	std::cout << "Unsorted String Array :\n";
-	for (i = 0; i < In_Strsort.size(); i++)
+	for (i = 0; i < In_Nosort.size(); i++)
 	{
-		std::cout << In_Strsort[i] << " ";
+		std::cout << In_Nosort[i] << " ";
 	}
-	for (i = 1; i < In_Strsort.size(); i++)
-	{
-		S_temp = In_Strsort[i];
-		j = i - 1;
-		while (j >= 0 && In_Strsort[j] > S_temp)
-		{
-			In_Strsort[j + 1] = In_Strsort[j];
-			j = j - 1;
-		}
-		In_Strsort[j + 1] = S_temp;
-	}
-	std::cout << std::endl;
+
+	InsertionSort_Impl(In_Strsort);
+
+	std::cout << '\n';
 	std::cout<< "sorted String Array:\n";
 	for (i = 0; i < In_Strsort.size(); i++)
 		std::cout << In_Strsort[i] << " ";
@@ -70,9 +72,9 @@ void Insertionsort::Insertionssort_str()
 bool Insertionsort::Select_Insertion()
 {
 	char answer = 0;
-	std::cout << "Press S to Sort Names                  Press N To Sort Numbers\n" << std::endl;
+	std::cout << "Press S to Sort Names                  Press N To Sort Numbers\n" << '\n';
 	std::cout << " Press S                    or          Press N\n";
-	std::cout << "--------------------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------------------" << '\n';
 
 	std::cin >> answer;
 	switch (answer)
@@ -104,6 +106,6 @@ bool Insertionsort::Select_Insertion()
 void Insertionsort::Welcome()
 {
 	SetName(Name);
-	std::cout<<GetName();
+	std::cout<<GetName()<<'\n';
 	Select_Insertion();
 }

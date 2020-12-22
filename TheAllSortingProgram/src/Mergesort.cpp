@@ -44,21 +44,23 @@ bool MergeSort::select_Merge()
 		break;
 	}
 }
-std::vector<int> MergeSort::merge_fun(std::vector<int>& L, std::vector<int>& R)
+
+template<typename T>
+std::vector<T> MergeSort::merge_fun(std::vector<T>& L, std::vector<T>& R)
 {
-	std::vector<int> Result;
+	std::vector<T> Result;
 	while ((int)L.size() > 0 || (int)R.size() > 0)
 	{
 		if ((int)L.size() > 0 && (int)R.size() > 0)
 		{
-			if ((int)L.front() <= (int)R.front())
+			if ((T)L.front() <= (T)R.front())
 			{
-				Result.push_back((int)L.front());
+				Result.push_back((T)L.front());
 				L.erase(L.begin());
 			}
 			else
 			{
-				Result.push_back((int)R.front());
+				Result.push_back((T)R.front());
 				R.erase(R.begin());
 			}
 		}
@@ -78,12 +80,13 @@ std::vector<int> MergeSort::merge_fun(std::vector<int>& L, std::vector<int>& R)
 	return Result;
 }
 
-std::vector<std::string> MergeSort::str_Mergesort_Imp(std::vector<std::string>& stack_result)
+template<typename T>
+std::vector<T> MergeSort::MergeSort_Impl(std::vector<T>& stack_result)
 {
 	if (stack_result.size() <= 1)
 		return stack_result;
 
-	std::vector<std::string>L, R, Result;
+	std::vector<T>L, R, Result;
 	int middle = ((int)stack_result.size() + 1) / 2;
 
 	for (int i = 0; i < middle; i++)
@@ -92,63 +95,8 @@ std::vector<std::string> MergeSort::str_Mergesort_Imp(std::vector<std::string>& 
 	for (int i = middle; i < (int)stack_result.size(); i++)
 		R.push_back(stack_result[i]);
 
-	L = str_Mergesort_Imp(L);
-	R = str_Mergesort_Imp(R);
-	Result = str_Merge_fun(L, R);
-
-	return Result;
-}
-
-std::vector<std::string> MergeSort::str_Merge_fun(std::vector<std::string>& L, std::vector<std::string>& R)
-{
-	std::vector<std::string> Result;
-	while ((int)L.size() > 0 || (int)R.size() > 0)
-	{
-		if ((int)L.size() > 0 && (int)R.size() > 0)
-		{
-			if ((std::string)L.front() <= (std::string)R.front())
-			{
-				Result.push_back((std::string)L.front());
-				L.erase(L.begin());
-			}
-			else
-			{
-				Result.push_back((std::string)R.front());
-				R.erase(R.begin());
-			}
-		}
-		else if ((int)L.size() > 0)
-		{
-			for (int i = 0; i < (int)L.size(); i++)
-				Result.push_back(L[i]);
-			break;
-		}
-		else if ((int)R.size() > 0)
-		{
-			for (int i = 0; i < (int)R.size(); i++)
-				Result.push_back(R[i]);
-			break;
-		}
-	}
-	return Result;
-}
-
-std::vector<int> MergeSort::MergeSort_Imp(std::vector<int>& stack_result)
-{
-	if (stack_result.size() <= 1)
-		return stack_result;
-
-	std::vector<int>L, R, Result;
-	int middle = ((int)stack_result.size() + 1) / 2;
-
-	for (int i = 0; i < middle; i++)
-		L.push_back(stack_result[i]);
-
-	for (int i = middle; i < (int)stack_result.size(); i++)
-		R.push_back(stack_result[i]);
-
-	L = MergeSort_Imp(L);
-	R = MergeSort_Imp(R);
+	L = MergeSort_Impl(L);
+	R = MergeSort_Impl(R);
 	Result = merge_fun(L, R);
 
 	return Result;
@@ -164,7 +112,14 @@ void MergeSort::MergeSort_No()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	stack_result =MergeSort_Imp(stack_result);
+	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
+
+	stack_result =MergeSort_Impl(stack_result);
 
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';
@@ -184,7 +139,14 @@ void MergeSort::Mergesort_str()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	stack_result = str_Mergesort_Imp(stack_result);
+	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
+
+	stack_result = MergeSort_Impl(stack_result);
 
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';

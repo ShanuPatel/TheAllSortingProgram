@@ -1,23 +1,25 @@
 #include "Quicksort.h"
 
-int Quicksort::Particition(std::vector<int>& a, int start, int end)
+template<typename T>
+int Quicksort::Particition(std::vector<T>& a, int start, int end)
 {
-	int pivot = a[end];
+	T pivot = a[end];
 	int pIndex = start;
 
 	for (int i = start; i < end; i++)
 	{
 		if (a[i] <= pivot)
 		{
-			swap_no(&a[i], &a[pIndex]);
+			swap_Impl(a[i], a[pIndex]);
 			pIndex++;
 		}
 	}
-	swap_no(&a[pIndex], &a[end]);
+	swap_Impl(a[pIndex], a[end]);
 	return pIndex;
 }
 
-void Quicksort::Quicksort_Impl(std::vector<int>& a, int start, int end)
+template<typename T>
+void Quicksort::Quicksort_Impl(std::vector<T>& a, int start, int end)
 {
 	if (start < end)
 	{
@@ -37,44 +39,19 @@ void Quicksort::Quicksort_No()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
+	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
 
-	Quicksort_Impl(stack_result,0,stack_result.size()-1);
+	Quicksort_Impl(stack_result, 0, stack_result.size() - 1);
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';
 	for (size_t i = 0; i < stack_result.size(); i++)
 		std::cout << stack_result[i] << " ";
 	std::cout << '\n' << std::endl;
-}
-
-int Quicksort::Particition_str(std::vector<std::string>& a, int start, int end)
-{
-	std::string pivot = a[end];
-	int pIndex = start;
-
-	for (int i = start; i < end; i++)
-	{
-		if (a[i] <= pivot)
-		{
-			std::string temp = a[i];
-			a[i] = a[pIndex];
-			a[pIndex] = temp;
-			pIndex++;
-		}
-	}
-	std::string temp = a[pIndex];
-	a[pIndex] = a[end];
-	a[end] = temp;
-	return pIndex;
-}
-
-void Quicksort::Quicksort_str_Impl(std::vector<std::string>& a, int start, int end)
-{
-	if (start < end)
-	{
-		int pIndex = Particition_str(a, start, end);
-		Quicksort_str_Impl(a, start, pIndex - 1);
-		Quicksort_str_Impl(a, pIndex + 1, end);
-	}
 }
 
 void Quicksort::Quicksort_str()
@@ -87,8 +64,14 @@ void Quicksort::Quicksort_str()
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
+	std::cout << "\033[2J\033[1;1H";
+	std::cout << "Unsorted String Array :\n";
+	for (size_t i = 0; i < stack_result.size(); i++)
+	{
+		std::cout << stack_result[i] << " ";
+	}
 
-	Quicksort_str_Impl(stack_result, 0, stack_result.size() - 1);
+	Quicksort_Impl(stack_result, 0, stack_result.size() - 1);
 	std::cout << '\n';
 	std::cout << "sorted Arrray:" << '\n';
 	for (size_t i = 0; i < stack_result.size(); i++)
@@ -99,9 +82,9 @@ void Quicksort::Quicksort_str()
 bool Quicksort::Select_Quick()
 {
 	char answer = 0;
-	std::cout << "Press S to Sort Names                  Press N To Sort Numbers" << std::endl;
+	std::cout << "Press S to Sort Names                  Press N To Sort Numbers" << '\n';
 	std::cout << " Press S                    or          Press N\n";
-	std::cout << "--------------------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------------------" << '\n';
 
 	std::cin >> answer;
 	switch (answer)

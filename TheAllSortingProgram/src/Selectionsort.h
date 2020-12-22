@@ -11,14 +11,17 @@ class Selectionsort : public Tsol
 	size_t i, j;
 	std::vector<int>array;
 	std::vector<std::string> s_array;
+
+	template<typename T>
+	void SelectionSort_Impl(std::vector<T>& Element);
+	bool Select_Selection();
+
 	void SelectionSort_No();
 	void SelectionSort_Str();
-	bool Select_Selection();
 
 public:
 
-	Selectionsort()
-		:In('.'), FName("."), input(0), Name("Welcome to Selection Sort\n\n"), min_indx(0), i(0), j(0) {}
+	Selectionsort():In('.'), FName("."), input(0), Name("\n                    Welcome to Selection Sort\n"), min_indx(0), i(0), j(0) {}
 	~Selectionsort();
 	void Welcome()override;
 };
